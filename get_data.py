@@ -83,6 +83,7 @@ def get_ENTSOE_prices(country="FR", pkl=True, csv=True):
         files.append(f)
         
     data_ENTSOE_prices = pd.concat(files)
+    data_ENTSOE_prices["Day-ahead Price"] = data_ENTSOE_prices["Day-ahead Price"].apply(pd.to_numeric, errors="coerce")
   
     
     
