@@ -26,6 +26,7 @@ def get_clean_RTE_data(download=True, pkl=True, csv=True):
         """
         
     if download:
+        print("Téléchargement en cours...")
         df_tr, df_cons = download_RTE_data()
     
     else:
@@ -104,6 +105,7 @@ def merge_RTE_ENTSOE(df_RTE, df_ENTSOE, pkl=True, csv=True):
         data_generation_prices.to_csv("data_generation_prices_FR.csv", sep=";", encoding="latin-1")
 
     return data_generation_prices
+
 
 rte = get_clean_RTE_data(download=True, pkl=False, csv=False)
 entsoe = get_ENTSOE_prices(country="FR", pkl=False, csv=False)
