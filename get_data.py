@@ -29,8 +29,8 @@ def get_clean_RTE_data(download=True, pkl=True, csv=True):
         df_tr, df_cons = download_RTE_data()
     
     else:
-        df_cons = pd.read_csv("input_data/raw/eco2mix-national-cons-def.csv", sep=";")
-        df_tr = pd.read_csv("input_data/raw/eco2mix-national-tr.csv", sep=";")
+        df_cons = pd.read_csv("eco2mix-national-cons-def.csv", sep=";")
+        df_tr = pd.read_csv("eco2mix-national-tr.csv", sep=";")
         
     df_cons.rename(columns={"Date et Heure":"Date - Heure"}, inplace=True)
     
@@ -72,7 +72,7 @@ def get_ENTSOE_prices(country="FR", pkl=True, csv=True):
     
     files = []
     for j in range(2015, 2025):
-        f = pd.read_csv(f"input_data/raw/prices_{country}/Day-ahead Prices_{j}01010000-{j+1}01010000.csv")
+        f = pd.read_csv(f"prices_{country}/Day-ahead Prices_{j}01010000-{j+1}01010000.csv")
         f["MTU (CET/CEST)"] = f["MTU (CET/CEST)"].apply(lambda x: x.split(" -", 1)[0])
         f["MTU (CET/CEST)"] = pd.to_datetime(f["MTU (CET/CEST)"], format="%d.%m.%Y %H:%M")
         f.rename({f.columns[1]: "Day-ahead Price"}, axis=1, inplace=True)
@@ -105,7 +105,7 @@ def merge_RTE_ENTSOE(df_RTE, df_ENTSOE, pkl=True, csv=True):
 
     return data_generation_prices
 
-rte = get_clean_RTE_data(download=False, pkl=False, csv=False)
+rte = get_clean_RTE_data(download=True, pkl=False, csv=False)
 entsoe = get_ENTSOE_prices(country="FR", pkl=False, csv=False)
 
 data_generation_prices = merge_RTE_ENTSOE(rte, entsoe, pkl=True, csv=True)
