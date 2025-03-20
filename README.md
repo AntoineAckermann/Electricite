@@ -8,4 +8,4 @@ J'ajoute les scripts au fur et à mesure de mon travail.
   
 * marginal_price.py : obtenir le prix de l'électricité étant donnés les _bids_ des producteurs et la demande (intersection des deux courbes).
 
-* prediction.py : script de base permettant de tester différentes approches pour la prédiction de la consommation.
+* prediction.py : script de base permettant de tester différentes approches pour faire de la prédiction.
