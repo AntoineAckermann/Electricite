@@ -1,5 +1,5 @@
 # Electricite
-Plusieurs scripts sur l'électricité (France) : prix, génération, modélisation, prédiction de la consommation, ... En fonction de mes intérêts du moment.
+Dossier "fourre-tout" contenant plusieurs scripts relatifs à l'électricité (France) : obtention des données de prix et de production, modélisation, prédiction de la consommation, ... en fonction de mes intérêts du moment.
 J'ajoute les scripts au fur et à mesure de mon travail.
 
 * get_data.py : obtenir un fichier CSV (ou pkl) des données de production horaire par source (source RTE) et de prix horaires (source ENTSOE ; fichiers à télécharger à la main a priori, ici dans le dossier "prices_FR") pour la maille France depuis 2012.
